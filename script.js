@@ -1,73 +1,39 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+//Character Types
+var lowerCase = "abcdefghijklmnopqrstuvwxyz";
+var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var num = "0123456789";
+var symbol = "!@#$%^&*()-_+=~`[]|";
+//Blank variable to fill with eligible characters
 var charSet = ""
-var passwordLength = 0
-var characterCode = ""
-var passwordGen= []
-var upperASCII = arrayGenMinToMax (65, 90);
-var lowerASCII = arrayGenMinToMax (97, 122);
-var numASCII = arrayGenMinToMax (48, 57);
-var specialASCII = arrayGenMinToMax (33, 47)
-  .concat(arrayGenMinToMax (58, 64)
-  ).concat(arrayGenMinToMax (91,96)
-  ).concat(arrayGenMinToMax (123,126)
-  );  
-// Write password to the #password input
-function writePassword() {
-  for(let i = 0; i < passwordLength; i++) {
-    var passwordGen = []
-    var characterCode = charSet [Math.floor(Math.random() * passwordLength)]
-    passwordGen.push(String.fromCharCode(characterCode))
-  }
-  return passwordGen.join("")
-}
-// Add event listener to generate button
+//Blank variable to fill with generated password
+var password
+
 generateBtn.addEventListener("click", writePassword);
-// TODO: Create prompts for password criteria
-//   - Length of password (between 8 and 128 characters) - prompt
-//   - Character types (lower/upper cases, numeric, symbols) - boolean "include 'x'"
-//   - Validate character types "you want your password to include Uppercase, lowercase and special characters, is this correct?"
-// Make password generator:
-
-function arrayGenMinToMax(min, max) {
-  var array = []
-  for (i = min; i <= max; i++) {
-    array.push(i)
-  }
-  return array
-}; 
-
-//   Select characterset
-// if (window.confirm("Use uppercase letters?")) charSet = charSet.concat(upperASCII)
-// if (window.confirm("Use lowercase letters?")) charSet = charSet.concat(lowerASCII)
-// if (window.confirm("Use numbers?")) charSet = charSet.concat(numASCII)
-// if (window.confirm("Use special characters?")) charSet = charSet.concat(specialASCII)
-
 
 //Ask for password length
 function passwordPrompt() {
   passwordLength = prompt("Enter password length: between 8 and 128", 8)
 }
+//Ask for password length
+var passwordLength = prompt("How many characters long should the password be (Must be between 8 and 128)");
+if (passwordLength <8 || passwordLength > 128) {
+  alert("Password must contain between 8 and 128 characters")
+}
 //Confirm which character sets to use
-function charSetPrompt() {
-  if (window.confirm("Use uppercase letters?")) charSet = charSet.concat(upperASCII)
-  if (window.confirm("Use lowercase letters?")) charSet = charSet.concat(lowerASCII)
-  if (window.confirm("Use numbers?")) charSet = charSet.concat(numASCII)
-  if (window.confirm("Use special characters?")) charSet = charSet.concat(specialASCII)
+var useLower = confirm("Should password contain lowercase letters?")
+var useUpper = confirm("Should password contain uppercase letters?")
+var useNum = confirm("Should password contain numbers?")
+var useSymbol = confirm("Should password contain symbols?")
+
+if (useLower) {
+  charSet = charSet += lowerCase
 }
-//Password must contain at least one "character set"
-while (charSet == "") {
-  charSetPrompt()
+if(useUpper) {
+  charSet = charSet +=
 }
-//Password must be between 8 and 128 characters
-while (passwordLength < 8) {
-  passwordPrompt()
-}
-while (passwordLength > 128) {
-  passwordPrompt()
-}
-// passwordPrompt()
-// charSetPrompt()
-console.log(passwordLength)
-console.log(charSet)
-console.log(passwordGen)
+ //If user chooses no characters
+if(!useLower && !useUpper && !useNum && !useSymbol) {
+    userChoices = alert("You must select at least one character type to generate a password");
+
