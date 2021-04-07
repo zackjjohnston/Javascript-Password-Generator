@@ -14,6 +14,10 @@ Upon completing the prompts, a password is generated and displayed.
 
 ### Link to Application
 https://zackjjohnston.github.io/Javascript-Password-Generator/age
-###Screenshots of Application
+
+### Screenshots of Application
+
+Before password is generated
 ![image](https://raw.githubusercontent.com/zackjjohnston/Javascript-Password-Generator/main/assets/Screenshot.png)
+With generated password shown
 ![image](https://raw.githubusercontent.com/zackjjohnston/Javascript-Password-Generator/main/assets/Screenshot2.png)
