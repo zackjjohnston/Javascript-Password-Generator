@@ -13,8 +13,7 @@ This repository contains a password generator, when the user clicks the "Generat
 Upon completing the prompts, a password is generated and displayed.
 
 ### Link to Application
-https://zackjjohnston.github.io/Javascript-Password-Generator/age
-
+https://zackjjohnston.github.io/Javascript-Password-Generator/
 ### Screenshots of Application
 
 Before password is generated
